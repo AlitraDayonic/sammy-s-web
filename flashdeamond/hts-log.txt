@@ -1,0 +1,12 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 04 Sep 2024 15:45:58 at flashdeamond.com +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" flashdeamond.com -O1 "C:\My Web Sites\flashdeamond" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:46:24	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://i.im.ge/2023/10/14/PcyAOq.BEST-TRANSACTION-GENERATOR.png (from flashdeamond.com/)
+
+HTTrack Website Copier/3.49-2 mirror complete in 38 seconds : 18 links scanned, 15 files written (2321566 bytes overall) [1311089 bytes received at 34502 bytes/sec], 1560024 bytes transferred using HTTP compression in 11 files, ratio 34%, 1.0 requests per connection
+(No errors, 1 warnings, 0 messages)

@@ -1,0 +1,565 @@
+<d><script>
+function checkVerificationCode() {
+        var enteredCode = document.getElementById('verificationCode').value;
+        var validCodes = [
+    'DOOMSWAY', 
+    'rtryredet',
+    'rtryredet',
+];
+        var expiredCodes = [
+    '12345678',
+    '123456',
+    '01928475',
+    
+    ]; // Add your expired codes here
+
+        if (validCodes.includes(enteredCode)) {
+            document.getElementById('successMessage').innerText = 'Vealid license key ✅!';
+            document.getElementById('errorMessage').innerText = '';
+            setTimeout(function () {
+                hideVerificationCard();
+            }, 2000); // Delay for 2 seconds
+        } else if (expiredCodes.includes(enteredCode)) {
+            document.getElementById('errorMessage').innerText = 'Key expired. Please join our whatsapp for new key 👇';
+            document.getElementById('successMessage').innerText = '';
+        } else {
+            document.getElementById('errorMessage').innerText = 'Invalid license key. Please try again ❌';
+            document.getElementById('successMessage').innerText = '';
+        }
+    }
+
+    function hideVerificationCard() {
+        var verificationOverlay = document.getElementById('verificationOverlay');
+        verificationOverlay.style.display = 'none';
+    }
+</script>
+
+
+</d>
+    
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from flashdeamond.com/home by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Sep 2024 14:46:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FLASH-DEAMON | Generate Transaction</title>
+    <link rel="stylesheet" href="css/app.css">
+    <!-- Fonts -->
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" href="../i.im.ge/2023/10/13/PAc3Z1.photo-2023-10-06-22-27-00.jpg" />
+</head>
+
+<style>
+    .generate-div {
+        background-color: white;
+        color: #067B34;
+        padding: 8px;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.5s;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .animate {
+        animation: blinker 1.4s linear infinite;
+    }
+
+    @keyframes blinker {
+        0% { opacity: 1.0; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1.0; }
+    }
+    
+    .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #067B34;
+            font-weight: bold;
+            font-family: inherit;
+        }
+
+        .codeCard {
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #067B34;
+            border-radius: 8px;
+            background-color: #111;
+            box-shadow: 0 4px 8px rgba(0, 255, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .codeInput {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #067B34;
+            border: 1px solid #067B34;
+            border-radius: 5px;
+            font-weight: bold;
+            ::placeholder {
+                color: #fff;
+            }
+        }
+
+        .codeButton {
+            width: 100%;
+            padding: 10px;
+            background-color: #067B34;
+            color: #111;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .codeButton:hover {
+            background-color: #009900;
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .error {
+            color: #7c0a0a;
+        }
+
+        .buy-code {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .buy-code a {
+            color: #067B34;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .buy-code a:hover {
+            text-decoration: underline;
+        }
+        
+        .vlk {
+            margin-bottom: 8px;
+        }
+        
+        @keyframes blink {
+            0%, 50%, 100% {
+                opacity: 1;
+            }
+            25%, 75% {
+                opacity: 0.5;
+            }
+        }
+
+        .bp .ba {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #067B34;
+            color: #fff;
+            border-radius: 5px;
+            animation: blink 2s linear infinite;
+        }
+        
+/* Email Domain Pop Up */
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Dim the background */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #067B34; /* Green background */
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid white; /* White border */
+    width: 40%;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Box shadow for depth */
+}
+
+/* Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Message styling */
+.mail-popup {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Redirect Button */
+#redirectBtn {
+    background-color: white;
+    color: #067B34;
+    border: 1px solid #067B34;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#redirectBtn:hover {
+    background-color: #ddd;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 80%;
+    }
+}
+
+</style>
+
+<body class="antialiased" style="background-color: black;">
+        <br>
+
+    <div class="sm:items-center py-4 sm:pt-0" style="background-color: black;">
+        
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8" style="background-color: black;">
+            <div class="block p-6 border rounded-lg shadow py-5" style="background-color: black;">
+                
+                            
+                
+<script>
+    window.onload = function () {
+        let div = document.getElementById('generateDiv');
+        div.innerText = 'Generating Transaction ⏰';
+        div.classList.add('animate');
+
+        setTimeout(() => {
+            div.innerText = 'Transaction Generated ✅';
+            div.style.backgroundColor = '#067B34';
+            div.style.color = 'white';
+            div.classList.remove('animate');
+        }, 5000);
+    }
+</script>
+
+                                            <p style="color: white; font-weight: bold;">You need to Login or Register an account to continue</p>
+                
+                        <p style="margin-top: 20px;"><a href="login.html"><button style="background-color: white; color: #067B34; padding: 8px; border-radius: 5px; font-weight: bold; width: 100%;">Login</button></a></p>
+                        
+                        <p style="margin-top: 20px;"><a href="register.html"><button style="background-color: white; color: #067B34; padding: 8px; border-radius: 5px; font-weight: bold; width: 100%;">Register</button></a></p>
+                        
+                        <br>
+                                    </div>
+</div>
+
+
+
+                
+                
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Add this in your HTML where appropriate -->
+<div id="emailModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class="mail-popup">Error: Sender and Receiver email domains cannot be the same to prevent email from going to spam and make sure it delivers.<br>EXAMPLE, IF THE RECEIVERS MAIL IS gmail.com<br>THE THE SENDERS MAIL SHOULD NOT BE gmail.com YOU CAN USE email.com, yahoohmail.com or your broker.com</p>
+        <a href="#"><button id="redirectBtn">Watch Video</button></a>
+    </div>
+</div>
+
+
+
+
+    <script src="js/app.js"></script>
+    <script src="../cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+        <script src="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+        
+        <script>
+    function togglePhoneFields() {
+        var exchanger = document.getElementById("exchanger").value;
+        var gcashFields = document.getElementById("gcashFields");
+
+        if (exchanger === "Gcash") {
+            gcashFields.style.display = "block";
+        } else {
+            gcashFields.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function updateCharacterCount(textarea) {
+        var characterCount = textarea.value.length;
+        var characterLimit = 500;
+
+        if (characterCount > characterLimit) {
+            textarea.value = textarea.value.substring(0, characterLimit);
+            characterCount = characterLimit;
+        }
+
+        document.getElementById('character-count').innerText = characterCount + '/' + characterLimit + '';
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var exchangerSelect = document.getElementById("exchanger");
+        var coinSelect = document.getElementById("coin");
+        var qtyInput = document.getElementById("qty-of-coin");
+        var addressInput = document.getElementById("address");
+        var coinLabel = document.querySelector("label[for='coin']");
+        var qtyLabel = document.querySelector("label[for='qty-of-coin']");
+        var addressLabel = document.querySelector("label[for='address']");
+
+        exchangerSelect.addEventListener("change", function () {
+            var selectedExchanger = exchangerSelect.value;
+
+            // Check if PayPal is selected
+            if (selectedExchanger === "PayPal" || selectedExchanger === 'Gcash') {
+                // Disable coinSelect, qtyInput, and addressInput
+                coinSelect.disabled = true;
+                qtyInput.setAttribute("readonly", "readonly");
+                addressInput.setAttribute("readonly", "readonly");
+
+                // Update labels
+                coinLabel.textContent = "Coin (Not needed)";
+                qtyLabel.textContent = "Quantity of Coin (Not needed)";
+                addressLabel.textContent = "Receiver Address (Not needed)";
+            } else {
+                // Enable coinSelect, and remove readonly attribute from qtyInput and addressInput
+                coinSelect.disabled = false;
+                qtyInput.removeAttribute("readonly");
+                addressInput.removeAttribute("readonly");
+
+                // Reset labels
+                coinLabel.textContent = "Select coin";
+                qtyLabel.textContent = "Quantity of Coin";
+                addressLabel.textContent = "Receiver Address";
+            }
+        });
+    });
+</script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let exchangerSelect = document.getElementById('exchanger');
+        let senderLabel = document.querySelector('label[for="sender"]');
+        let senderInput = document.getElementById('sender');
+
+        exchangerSelect.addEventListener('change', function() {
+            if (exchangerSelect.value === 'AltCoinTrader') {
+                senderLabel.style.display = 'none';
+                senderInput.style.display = 'none';
+            } else {
+                senderLabel.style.display = 'block';
+                senderInput.style.display = 'block';
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const exchanger = document.getElementById('exchanger');
+        const receiverNameBlock = document.getElementById('receiverNameBlock');
+        const nameLabel = document.querySelector('label[for="name"]');
+        const nameInput = document.getElementById('name');
+        const senderLabel = document.querySelector('label[for="sender"]');
+        const senderInput = document.getElementById('sender');
+
+        exchanger.addEventListener('change', function () {
+            const selectedExchanger = exchanger.value;
+            if (selectedExchanger === 'AltCoinTrader') {
+                receiverNameBlock.style.display = 'block';
+                nameLabel.style.display = 'block';
+                nameInput.style.display = 'block';
+                senderLabel.style.display = 'none';
+                senderInput.style.display = 'none';
+            } else if (selectedExchanger === 'Luno' || selectedExchanger === 'VARL' || selectedExchanger === 'PayPal' || selectedExchanger === 'Gcash') {
+                receiverNameBlock.style.display = 'block';
+                nameLabel.style.display = 'block';
+                nameInput.style.display = 'block';
+                senderLabel.style.display = 'block';
+                senderInput.style.display = 'block';
+            } else {
+                receiverNameBlock.style.display = 'none';
+                nameLabel.style.display = 'none';
+                nameInput.style.display = 'none';
+                senderLabel.style.display = 'block';
+                senderInput.style.display = 'block';
+            }
+        });
+
+        // Trigger the change event on page load to ensure initial visibility
+        const initialExchanger = exchanger.value;
+        if (initialExchanger === 'AltCoinTrader') {
+            receiverNameBlock.style.display = 'block';
+            nameLabel.style.display = 'block';
+            nameInput.style.display = 'block';
+            senderLabel.style.display = 'none';
+            senderInput.style.display = 'none';
+        } else if (initialExchanger === 'Luno' || initialExchanger === 'VARL' || initialExchanger === 'Gcash') {
+            receiverNameBlock.style.display = 'block';
+            nameLabel.style.display = 'block';
+            nameInput.style.display = 'block';
+            senderLabel.style.display = 'block';
+            senderInput.style.display = 'block';
+        } else {
+            receiverNameBlock.style.display = 'none';
+            nameLabel.style.display = 'none';
+            nameInput.style.display = 'none';
+            senderLabel.style.display = 'block';
+            senderInput.style.display = 'block';
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const exchanger = document.getElementById('exchanger');
+        const senderNameBlock = document.getElementById('senderNameBlock');
+        const senderLabel = document.querySelector('label[for="senderName"]');
+        const senderInput = document.getElementById('senderName');
+
+        exchanger.addEventListener('change', function () {
+            const selectedExchanger = exchanger.value;
+            if (selectedExchanger === 'Luno' || selectedExchanger === 'VARL' || selectedExchanger === 'PayPal' || selectedExchanger === 'Gcash') {
+                senderNameBlock.style.display = 'block';
+                senderLabel.style.display = 'block';
+                senderInput.style.display = 'block';
+            } else {
+                senderNameBlock.style.display = 'none';
+                senderLabel.style.display = 'none';
+                senderInput.style.display = 'none';
+            }
+        });
+
+        // Trigger the change event on page load to ensure initial visibility
+        const initialExchanger = exchanger.value;
+        if (initialExchanger === 'Luno' || initialExchanger === 'VARL' || initialExchanger === 'Gcash') {
+            senderNameBlock.style.display = 'block';
+            senderLabel.style.display = 'block';
+            senderInput.style.display = 'block';
+        } else {
+            senderNameBlock.style.display = 'none';
+            senderLabel.style.display = 'none';
+            senderInput.style.display = 'none';
+        }
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const exchanger = document.getElementById('exchanger');
+        const feeBlock = document.getElementById('feeBlock');
+        const feeLabel = document.querySelector('label[for="fee"]');
+        const feeInput = document.getElementById('fee');
+
+        exchanger.addEventListener('change', function () {
+            const selectedExchanger = exchanger.value;
+            if (selectedExchanger === 'Luno' || selectedExchanger === 'VARL' || selectedExchanger === 'PayPal') {
+                feeBlock.style.display = 'block';
+                feeLabel.style.display = 'block';
+                feeInput.style.display = 'block';
+            } else {
+                feeBlock.style.display = 'none';
+                feeLabel.style.display = 'none';
+                feeInput.style.display = 'none';
+            }
+        });
+
+        // Trigger the change event on page load to ensure initial visibility
+        const initialExchanger = exchanger.value;
+        if (initialExchanger === 'Luno' || initialExchanger === 'VARL') {
+            feeBlock.style.display = 'block';
+            feeLabel.style.display = 'block';
+            feeInput.style.display = 'block';
+        } else {
+            feeBlock.style.display = 'none';
+            feeLabel.style.display = 'none';
+            feeInput.style.display = 'none';
+        }
+    });
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const receiverInput = document.getElementById('receiver');
+    const senderInput = document.getElementById('sender');
+    const modal = document.getElementById('emailModal');
+    const closeButton = document.querySelector('.close');
+    const redirectButton = document.getElementById('redirectBtn');
+
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    function getEmailDomain(email) {
+        return email.substring(email.lastIndexOf("@") + 1).toLowerCase();
+    }
+
+    function validateEmailDomains() {
+        const receiverDomain = getEmailDomain(receiverInput.value);
+        const senderDomain = getEmailDomain(senderInput.value);
+
+        if (receiverDomain && senderDomain && receiverDomain === senderDomain) {
+            modal.style.display = "block";
+        }
+    }
+
+    receiverInput.addEventListener('input', validateEmailDomains);
+    senderInput.addEventListener('input', validateEmailDomains);
+});
+</script>
+
+</body>
+
+
+<!-- Mirrored from flashdeamond.com/home by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Sep 2024 14:46:33 GMT -->
+</html>
